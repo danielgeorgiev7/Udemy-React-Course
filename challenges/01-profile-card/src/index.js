@@ -40,7 +40,7 @@ function Intro() {
     <>
       <h1>Daniel Georgiev</h1>
       <p>
-        I define myself as an communicative and a fast-learner. I'm currently
+        I define myself as communicative and a fast-learner. I'm currently
         studying Front-End at SoftUni. I'm also fluent in English and have a
         basic knowledge of German.
       </p>
