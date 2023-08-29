@@ -44,10 +44,9 @@ export default function App() {
 
   useEffect(function () {
     const controller = new AbortController();
-
+    setIsLoading(true);
     async function fetchMovies() {
       try {
-        setIsLoading(true);
         const response = await fetch(
           `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
           {signal: controller.signal});
