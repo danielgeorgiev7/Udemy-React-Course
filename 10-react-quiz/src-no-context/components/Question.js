@@ -1,8 +1,6 @@
-import { useQuiz } from "../contexts/QuizContext"
 import Timer from "./Timer"
 
-function Question() {
-    const { questions, dispatch, answer, index, length, points, maxPossiblePoints, secondsRemaining } = useQuiz();
+function Question({ question, dispatch, answer, index, length, points, maxPossiblePoints, secondsRemaining }) {
     return (
         <>
             <header className="progress">
@@ -15,15 +13,15 @@ function Question() {
                 </p>
             </header>
             <div>
-                <h4>{questions[index].question}</h4>
+                <h4>{question.question}</h4>
 
                 <div className="options">
-                    {(questions[index].options).map((option, i) =>
+                    {question.options.map((option, i) =>
                         <button
                             className={`btn btn-option 
                         ${i === answer ? "answer" : ""}
                          ${answer !== null ?
-                                    (i === questions[index].correctOption
+                                    (i === question.correctOption
                                         ? "correct"
                                         : "wrong")
                                     : ""}`}
