@@ -37,52 +37,40 @@
       "id": 98443197
     },
     {
-      "cityName": "Torrejoncillo del Rey",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-23T22:43:41.712Z",
+      "cityName": "Arces-Dilo",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-09-24T15:20:57.262Z",
       "notes": "",
       "position": {
-        "lat": "40.027614437486655",
-        "lng": "-2.4499511718750004"
+        "lat": "48.07807894349862",
+        "lng": "3.5595703125"
       },
       "id": 98443198
     },
     {
-      "cityName": "Broto",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-09-24T14:04:47.527Z",
+      "cityName": "Vozdovac",
+      "country": "Serbia",
+      "emoji": "🇷🇸",
+      "date": "2023-09-24T15:21:46.825Z",
       "notes": "",
       "position": {
-        "lat": "42.56926437219384",
-        "lng": "-0.19775390625000003"
+        "lat": "44.68427737181225",
+        "lng": "20.500488281250004"
       },
       "id": 98443199
     },
     {
-      "cityName": "Sofia",
-      "country": "Bulgaria",
-      "emoji": "🇧🇬",
-      "date": "2023-09-24T14:04:56.138Z",
+      "cityName": "Sopot",
+      "country": "Serbia",
+      "emoji": "🇷🇸",
+      "date": "2023-09-24T15:21:51.277Z",
       "notes": "",
       "position": {
-        "lat": "42.58544425738491",
-        "lng": "23.4228515625"
+        "lat": "44.55916341529182",
+        "lng": "20.632324218750004"
       },
       "id": 98443200
-    },
-    {
-      "cityName": "Strazhitsa",
-      "country": "Bulgaria",
-      "emoji": "🇧🇬",
-      "date": "2023-09-24T14:05:02.427Z",
-      "notes": "",
-      "position": {
-        "lat": "43.14909399920127",
-        "lng": "25.993652343750004"
-      },
-      "id": 98443201
     }
   ]
 }
