@@ -7,18 +7,20 @@ function CartOverview() {
   const totalCartQuantity = useSelector(getTotalCartQuantity);
   const totalPrice = useSelector(getTotalCartPrice);
   return (
-    <div
-      className="bg-stone-800 text-stone-200 uppercase p-4 
+    totalCartQuantity > 0 && (
+      <div
+        className="bg-stone-800 text-stone-200 uppercase p-4 
     sm:px-6 text-sm md:text-base flex items-center justify-between"
-    >
-      <p className="text-stone-300 font-semibold space-x-4 sm:space-x-6">
-        <button>
-          {totalCartQuantity} {totalCartQuantity === 1 ? 'pizza' : 'pizzas'}
-        </button>
-        <span>{formatCurrency(totalPrice)}</span>
-      </p>
-      <Link to="/cart">Open cart &rarr;</Link>
-    </div>
+      >
+        <p className="text-stone-300 font-semibold space-x-4 sm:space-x-6">
+          <button>
+            {totalCartQuantity} {totalCartQuantity === 1 ? 'pizza' : 'pizzas'}
+          </button>
+          <span>{formatCurrency(totalPrice)}</span>
+        </p>
+        <Link to="/cart">Open cart &rarr;</Link>
+      </div>
+    )
   );
 }
 
