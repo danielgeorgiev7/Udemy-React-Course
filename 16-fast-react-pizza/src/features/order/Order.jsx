@@ -1,48 +1,27 @@
-import { getOrder } from '../../services/apiRestaurant';
+// Test ID: IIDSAT
+import { useFetcher, useLoaderData } from 'react-router-dom';
+
 import OrderItem from './OrderItem';
+
+import { getOrder } from '../../services/apiRestaurant';
 import {
   calcMinutesLeft,
   formatCurrency,
   formatDate,
 } from '../../utils/helpers';
-
-const order = {
-  id: 'ABCDEF',
-  customer: 'Jonas',
-  phone: '123456789',
-  address: 'Arroios, Lisbon , Portugal',
-  priority: true,
-  status: 'preparing',
-  estimatedDelivery: '2027-04-25T10:00:00',
-  cart: [
-    {
-      pizzaId: 7,
-      name: 'Napoli',
-      quantity: 3,
-      unitPrice: 16,
-      totalPrice: 48,
-    },
-    {
-      pizzaId: 5,
-      name: 'Diavola',
-      quantity: 2,
-      unitPrice: 16,
-      totalPrice: 32,
-    },
-    {
-      pizzaId: 3,
-      name: 'Romana',
-      quantity: 1,
-      unitPrice: 15,
-      totalPrice: 15,
-    },
-  ],
-  position: '-9.000,38.000',
-  orderPrice: 95,
-  priorityPrice: 19,
-};
+import { useEffect } from 'react';
+import UpdateOrder from './UpdateOrder';
 
 function Order() {
+  const order = useLoaderData();
+  const fetcher = useFetcher();
+
+  useEffect(
+    function () {
+      if (!fetcher.data && fetcher.state === 'idle') fetcher.load('/menu');
+    },
+    [fetcher],
+  );
   const {
     id,
     status,
@@ -52,6 +31,7 @@ function Order() {
     estimatedDelivery,
     cart,
   } = order;
+
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
 
   return (
@@ -82,9 +62,17 @@ function Order() {
         </p>
       </div>
 
-      <ul className="divide-y divide-stone-200 border-b border-t ">
+      <ul className="dive-stone-200 divide-y border-b border-t">
         {cart.map((item) => (
-          <OrderItem item={item} key={item.pizzaId} />
+          <OrderItem
+            item={item}
+            key={item.pizzaId}
+            isLoadingIngredients={fetcher.state === 'loading'}
+            ingredients={
+              fetcher?.data?.find((el) => el.id === item.pizzaId)
+                ?.ingredients ?? []
+            }
+          />
         ))}
       </ul>
 
@@ -101,6 +89,8 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
