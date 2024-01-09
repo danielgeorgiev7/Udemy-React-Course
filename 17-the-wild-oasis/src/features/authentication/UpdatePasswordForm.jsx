@@ -3,7 +3,6 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
-
 import { useUpdateUser } from "./useUpdateUser";
 
 function UpdatePasswordForm() {
@@ -18,10 +17,7 @@ function UpdatePasswordForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormRow
-        label="Password (min 8 characters)"
-        error={errors?.password?.message}
-      >
+      <FormRow label="Password (min 8 chars)" error={errors?.password?.message}>
         <Input
           type="password"
           id="password"
